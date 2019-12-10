@@ -90,7 +90,11 @@ p{
 }
 
 .fa-col-2{
-	color: white;
+	color: #00BFFF;
+}
+
+.fa-col-3{
+    color: white;
 }
 
 /*--- FontAwesome Enhancement ---*/
