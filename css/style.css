@@ -55,7 +55,7 @@ body {
 	font-weight: 700;
 	line-height: 0.9;
     margin-bottom: 20px;
-    color: #00BFFF
+    color: #212529;
 
 }
 
@@ -90,7 +90,7 @@ p{
 }
 
 .fa-col-2{
-	color: #00BFFF;
+	color: #212529;
 }
 
 .fa-col-3{
@@ -196,7 +196,7 @@ p{
         width: 15px;
     }
     .timeline-marker::before {
-        background: #00BFFF;
+        background: #6c757d;
         border: 3px solid transparent;
         border-radius: 100%;
         content: "";
