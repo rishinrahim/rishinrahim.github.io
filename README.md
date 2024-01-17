@@ -1,3 +1,3 @@
 # Personal Website
 
-Inspired from maryzam.github.io
+Inspired from karpathy.ai
