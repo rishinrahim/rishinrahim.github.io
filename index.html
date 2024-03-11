@@ -47,18 +47,15 @@
         </div>
         <div class="desc">
           <div class="htxt">
-              As a Sr. Machine Learning engineer at <a href="https://www.blueoptima.com//">Blueoptima</a>,I currently lead the development of machine learning models 
-              capable of detecting AI generated code, assessing the impact of AI on developer productivity and quality.
-              We are also working on building a model that can identify developer signatures within code, that significantly aids in authorship.
-              We are also working on Fine-tuning state-of-the-art code generation LLM models such as Code Llama and Mistral to address code vulnerabilities.
-              These models, fine-tuned on datasets featuring code vulnerabilities, significantly improved the accuracy of automated code repair techniques.
-              Previously, I contributed to the development of models capable of discerning developer behaviour based on version control data and commit 
-              patterns.
-              I also worked on the development of a model to map OSS dependency vulnerabilities to published vulnerabilities in NVD by analysing
-              text data from JIRA Bug reports, Github issues, release notes, and security advisories.
-              My role also extends to managing and maintaining the end-to-end deployment of these models into the production environment.
-              Our development/production environment is set up on an on-premise cloud, integrated with CUDA GPUs, using Kubernetes, MLflow, and Docker.
+              As a Sr. Machine Learning engineer at <a href="https://www.blueoptima.com//">Blueoptima</a>,I currently lead the the <b>Code Authorship Detection (CAD)</b> Project: We build models to identify developer signatures based on stylistic and structural patterns in code, effectively creating unique "signature embeddings" for distinct authorship identification by utilising siamese networks with transformer encoders and pre-trained models like CodeBert.
 
+              Within CAD, we also explore methods to detect AI-generated code and assess its impact on developer productivity and quality. Our models extract relevant features from code representations to capture style, structure, and naturalness, effectively identifying AI-generated code. We have built dedicated models for different programming languages and currently support 8 Programming languages including C, Java and Python.
+
+              <br />
+              <br />
+              Previously, I also successfully led the Beta Release of the <b>Pure Coding Time Estimation</b> Project, achieving an impressive correlation of over 0.4 between estimated and actual coding effort. This involved building Neural hidden Markov Models trained on 1.3Bn data points across 160k developers , extracting their generic coding behaviour patterns.
+
+              My role also extends to managing and maintaining the end-to-end deployment of ML models in production environments, using Kubernetes and Docker for containerized deployments, monitoring model performance using tools like Prometheus/Grafana and MLflow for model lifecycle management and retraining strategies.
 
           </div>
         </div>
@@ -73,14 +70,18 @@
           <img src="./static/unisys.png">
         </div>
         <div class="desc">
-          I was a Sr. Machine Learning Engineer at <a href="https://www.unisys.com/">Unisys</a>. At Unisys, I played a pivotal role in the development of IntelliServe, a conversational AI tool where we built models to identify the intent of a conversation, triage them to respective handlers and built utterance models to generate conversations using Knowledge graphs to create synthetic training data. I also contributed significantly to CloudForte where I developed time series forecasting models, leading to significant resource optimization in cloud environments. Also developed recommendation models aiding users in making informed decisions about upscaling or downscaling of resources. All development activities were done within the Databricks ecosystem, and the models were deployed in the Azure cloud.
+          I was a Sr. Machine Learning Engineer at <a href="https://www.unisys.com/">Unisys</a>. At Unisys, I developed and implemented ML models for intent identification and conversation triaging within <b>IntelliServe™</b>, a conversational customer support AI tool. Leveraged NLP techniques like  RNNs and NER for model development. Also, Contributed significantly to the development of utterance models leveraging knowledge graphs to create synthetic training data for IntelliServe™ conversation engine.This enabled automated conversation generation and facilitated faster model training and iteration.
+
+          <br />
+          <br />
+          I also played a significant role in the development of <b>CloudForte™ </b> (cloud resource optimization platform) where we developed time series forecasting models, leading to significant resource optimization in cloud environments, aiding users in making informed decisions about upscaling or downscaling of resources.All development activities were done within the Databricks ecosystem, and the models were deployed in the Azure cloud.
 
         </div>
       </div>
 
       <div class="entry row">
         <div class="timespan">
-          2015 - 2019
+          2015 - 2020
         </div>
         <div class="ico">
           <div class="entry-dot"></div>
@@ -128,13 +129,14 @@
       <p>These writings comprises a curated collection of my observations and insights as I delve into the intricate realms of machine learning. While much of the content remains relevant, some entries might reflect the state of knowledge at the time they were written and should be interpreted within their historical context. The primary objective of sharing these notes is educational; they are not intended to disseminate misinformation
 </p>
       <ul class="nodot">
-        <li> Jun 2023 <a href="https://www.rishinrahim.com/codegen">LLM: Code Generation</a></li>
-        <li> Feb 2023 <a href="https://www.rishinrahim.com/transformers">LLM: Transformer Architecture </a></li>
-        <li> Jan 2023 <a href="https://www.rishinrahim.com/code_rep">ML for Code: Code Representions</a></li>
-        <li> Dec 2022 <a href="https://www.rishinrahim.com/se">ML for Code: Software Engineering Tasks - A review</a></li>
-        <li> Nov 2022 <a href="https://www.rishinrahim.com/attention">LLM: Attention Mechanism</a></li>
-        <li> Mar 2022 <a href="https://karpathy.medium.com//bert">LLM: BERT</a></li>
+        <li> Jun 2023 <a href="https://www.rishinrahim.com/codegen">Code Generation using LLMs</a></li>
+        <li> Apr 2023 <a href="https://www.rishinrahim.com/code_rep">Code Represention</a></li>
+        <li> Mar 2023 <a href="https://www.rishinrahim.com/se">Applying ML on Source Code - A review</a></li>
+        <li> Jan 2023 <a href="https://karpathy.medium.com//bert">BERT</a></li>
+        <li> Dec 2022 <a href="https://www.rishinrahim.com/transformers">Transformer Architecture </a></li>
+        <li> Nov 2022 <a href="https://www.rishinrahim.com/attention">Attention Mechanism</a></li>
         <li> Dec 2021 <a href="https://www.rishinrahim.com/ml4code/productivity">Measuring Developer productivity: A Survey</a></li>
+        <li> Dec 2021 <a href="https://www.rishinrahim.com/ml/nntimeline">NLP - Timeline</a></li>
         <li> Dec 2021 <a href="https://www.rishinrahim.com/ml/nntimeline">Neural Network - Timeline</a></li>
         <li> Jun 2021 <a href="./blog/statistics.html">30 Days of Statistics</a></li>
 
