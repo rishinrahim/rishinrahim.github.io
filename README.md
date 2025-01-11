@@ -1,3 +1,3 @@
 # Personal Website
 
-Inspired from karpathy.ai
+Under constructio
