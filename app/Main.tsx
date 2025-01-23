@@ -6,13 +6,12 @@ import NewsletterForm from 'pliny/ui/NewsletterForm'
 
 const MAX_DISPLAY = 100
 
-
 export default function Home({ posts }) {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-3 pt-1 pb-5 md:space-y-2">
-          <p className="text-sm leading-2 text-gray-500 dark:text-gray-400">
+        <div className="space-y-3 pb-5 pt-1 md:space-y-2">
+          <p className="leading-2 text-sm text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
         </div>
@@ -31,14 +30,14 @@ export default function Home({ posts }) {
                       </dd>
                       <br></br>
                       <dd className="flex flex-wrap gap-1">
-                            {tags.map((tag) => (
-                              <Tag 
-                                key={tag} 
-                                text={`${tag}`} 
-                                className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-md"
-                              />
-                            ))}
-                        </dd>
+                        {tags.map((tag) => (
+                          <Tag
+                            key={tag}
+                            text={`${tag}`}
+                            className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700"
+                          />
+                        ))}
+                      </dd>
                     </dl>
                     <div className="space-y-1 xl:col-span-3">
                       <div className="space-y-3">
@@ -51,9 +50,8 @@ export default function Home({ posts }) {
                               {title}
                             </Link>
                           </h4>
-                          
                         </div>
-                        <div className="text-sm max-w-none text-gray-600 dark:text-gray-300">
+                        <div className="max-w-none text-sm text-gray-600 dark:text-gray-300">
                           {summary}
                         </div>
                       </div>

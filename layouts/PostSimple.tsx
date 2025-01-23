@@ -38,9 +38,12 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
-              <div className="flex justify-center space-x-2 mb-4">
+              <div className="mb-4 flex justify-center space-x-2">
                 {tags.map((tag) => (
-                  <span key={tag} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-md">
+                  <span
+                    key={tag}
+                    className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700"
+                  >
                     {tag}
                   </span>
                 ))}
