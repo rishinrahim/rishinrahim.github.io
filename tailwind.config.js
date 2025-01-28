@@ -22,8 +22,8 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Helvetica Neue'],
-        serif: ['ET Book', 'Times New Roman'],
+        sans: ['Merriweather'],
+        serif: ['Merriweather'],
       },
       colors: {
         primary: colors.neutral,
