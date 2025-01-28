@@ -1,0 +1,251 @@
+---
+title: 'Setting Up my Mac Mini'
+date: '2025-01-28'
+lastmod: '2025-01-28'
+tags: ['Guide']
+draft: false
+summary: 'I have been exploring various Mac setup articles and videos to optimize my system. In this article, I will list all the apps and modifications I made on my new Mac Mini and include references at the end.'
+# images: ['/static/images/canada/mountains.jpg', '/static/images/canada/toronto.jpg']
+authors: ['default']
+---
+
+Starting the year with a thoughtful upgrade, I decided it was time to level up my tech game—and what better way to start than by upgrading my trust old [laptop](https://support.apple.com/en-la/111924)? I initially thought a MacBook Air, a natural upgrade, would be a good choice, but after reading reviews about the Mac Mini, my decision was clear. I ordered a new Mac Mini at the tail end of last year and received it in the second week of January. Since then, I have been exploring various Mac setup articles and videos to optimize my system. In this article, I will list all the apps and modifications I made on my new Mac Mini and include references at the end.
+## Mac mini specification
+
+- **Chip**: Apple M4
+- **Memory**: 16 GB
+- **MacOs**: Sequoia 15.2
+## MacOS settings
+- **Apple ID**: Sign in
+- **Appearance**: Dark mode
+- **MacOS update**: Settings -> General -> Software Update
+- **Keyboard**: 
+	- key repeat = fast, delay until repeat = short
+	- Turn off autocorrect in Keyboard
+	- Shortcuts: copy picture of selected area to clipboard -> Cmd+E
+	- Disable "Capitalize word automatically"
+	- Disable "Add full stop with double-space"
+	- Disable "Use smart quotes and dashes"
+	- Disable "Add period with double-space"
+- **Dock**: Hide and show dock, reduce size, Remove everything from the Dock except: Finder, System Preferences and Trash
+- Disable user interface sounds.
+- **Finder**: 
+	- Show Library, show hidden files, show path to dir
+	- Prune the excessive sidebar bookmarks
+    - create “Projects” folder and pin 
+    - To get the Home folder in the finder, press `CMD + SHIFT + H` and drag the home folder to the sidebar.
+      
+    ```shell
+    # show Library folder
+    chflags nohidden ~/Library
+
+    # show hidden files
+    defaults write com.apple.finder AppleShowAllFiles YES
+
+    # add pathbar to title
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+    # restart finder
+    killall Finder;
+    ```
+ 
+- Take screenshots as jpg (usually smaller size) and not png
+  
+    ```shell
+    defaults write com.apple.screencapture type jpg
+    ```
+
+## Basic developer tools
+
+- [**Homebrew**](https://brew.sh/) : 
+	- Homebrew installs [the stuff you need](https://formulae.brew.sh/formula/ "List of Homebrew packages") that Apple (or your Linux system) didn’t. “To install, drag this icon…” no more. 
+	- [Homebrew Cask](https://formulae.brew.sh/cask/) installs macOS apps, fonts and plugins and other non-open source software.
+
+    ```shell
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+    ```
+
+- **[Oh My Zsh](https://ohmyz.sh/):** Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout..."Oh MY ZSH!"
+    ```shell
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ```
+
+- **[mactop](https://github.com/context-labs/mactop):** A terminal-based monitoring tool "top" designed to display real-time metrics for Apple Silicon chips. It provides a simple and efficient way to monitor CPU and GPU usage, E-Cores and P-Cores, power consumption, and other system metrics directly from your terminal!
+  
+    ```shell
+    brew install mactop
+    ```
+
+- **[VSCode](https://code.visualstudio.com/)**: Primary IDE to build and debug applications
+	- Extensions:
+		- Python
+		- Pylance
+		- Python Debugger
+		- MagicPython
+		- Jupyter
+		- Jupyter cell tags
+		- Jupyter slide show
+		- Remote SSH
+		- Even Better TOML
+		- json
+		- yaml
+		- Gitlens
+		- AutoDocstring
+		- Code spell checker
+		- Ruff
+		- Todo Tree
+		- Prettify Json
+		- Prettier
+		- Dracula theme
+
+
+
+- **Sublime**: Simple code and text edits
+    ```shell
+    brew install --cask sublime-text
+    ```
+
+-  **[uv for python management](https://github.com/astral-sh/uv#installation)**: don’t install python the normal way. no conda, no brew python. [UV for Python… (Almost) All Batteries Included](https://www.youtube.com/watch?v=qh98qOND6MI&ab_channel=ArjanCodes )
+
+  
+    ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    source $HOME/.local/bin/env.fish
+    uv python install 3.12
+    ```
+ 
+- **Javascript**
+  
+	- node: A runtime environment that allows you to run JavaScript on the server side
+	  
+	```shell
+        brew install node
+    ```
+
+	- npm: The default package manager for Node.js. It helps developers install, manage, and share libraries and tools for JavaScript projects.
+	  
+	```shell
+    brew install npm
+    ```
+
+	- [yarn](https://yarnpkg.com/en/docs/install#mac-stable) : An alternative package manager to npm. It offers faster dependency installation, better offline support, and deterministic builds
+  
+    ```shell
+    brew install yarn --ignore-dependencies
+    ```
+
+- [**github** **desktop** ](https://github.com/apps/desktop): I confess I prefer the GUI more than CMD - simplified the dev workflow significantly. though it doesn’t quite make you feel like a coding ninja.
+- **[OrbStack](https://orbstack.dev/)** as a Docker replacement, seems [lighter & faster](https://twitter.com/thorstenball/status/1743323371532599728)
+- **wget**: retrieves content from web servers.
+    ```shell
+    brew install wget
+    ```
+### Browser Settings
+
+- **Chrome**: For web development
+  
+    ```
+    brew install --cask google-chrome
+    ```
+
+- **Chrome extensions**: (tied to Chrome account)
+	- [Paywall blocker](https://github.com/iamadamdev/bypass-paywalls-chrome/](https://github.com/iamadamdev/bypass-paywalls-chrome/):
+	- [adblock](https://chromewebstore.google.com/detail/adblock-%E2%80%94-block-ads-acros/gighmmpiobklfepjocnamgkkbiglidom): Block ads on YouTube and your favorite sites for free
+	- octolinker
+	- [privacybadger](https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp): automatically learns to block invisible trackers.
+	- [refined github](https://chromewebstore.google.com/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf): Simplifies the GitHub interface and adds useful features
+	- [google docs offline](https://chromewebstore.google.com/detail/google-docs-offline/ghbmnnjooekpmoecnnnilnnbdlolhkhi): Edit, create and view your documents, spreadsheets and presentations – all without Internet access.
+	- [display anchors](https://chromewebstore.google.com/detail/display-anchors/poahndpaaanbpbeafbkploiobpiiieko): Displays anchors for all content in the current web page without breaking the layout.
+	- [video speed controller](https://chromewebstore.google.com/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk): Speed up, slow down, advance and rewind HTML5 audio/video with shortcuts
+	- [ublock origin](https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm):An efficient blocker: easy on memory and CPU footprint, and yet can load and enforce thousands more filters than other popular blockers out there.
+	- [uBlacklist](https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe): Blocks sites you specify from appearing in Google search results
+	- [whatfont](https://chromewebstore.google.com/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm): The easiest way to identify fonts on web pages.
+	- [Morpheon Dark](https://chromewebstore.google.com/detail/morpheon-dark/mafbdhjdkjnoafhfelkjpchpaepjknad): A minimalistic dark theme without any distractions
+	- [CrossQuery](https://chromewebstore.google.com/detail/crossquery/bjafchghcaffbfmdkhkmefppcabcbinl): Enhanced Google search experience with summaries from reddit and other websites
+	- [zotero](https://chromewebstore.google.com/detail/zotero-connector/ekhagklcjbdpajgpjgmbionohlpdbjgc): Save references to Zotero from your web browser
+	
+### Productivity
+
+- [Raycast](https://www.raycast.com/): an extendable launcher to replace spotlight. [Why Raycast is a must have for Productivity](https://www.youtube.com/watch?v=9B-0rG6BUi0&t=4s&ab_channel=InelPandzic)
+  
+    ```shell
+    brew install --cask raycast
+    ```
+
+- [Obsidian](https://obsidian.md/):  
+	- Obsidian is a personal knowledge base and note-taking software application that operates on Markdown files. It allows users to make internal links for notes and then to visualize the connections as a graph. It is designed to help users organize and structure their thoughts and knowledge in a flexible, non-linear way.
+	  
+	  
+	- iCloud can be used to sync vaults between iOS and macOS:
+		- **Enable iCloud Drive**:
+		    - On macOS: Go to **System Preferences → Apple ID → iCloud → iCloud Drive**.
+		    - On iOS: Go to **Settings → [Your Name] → iCloud → iCloud Drive**.
+		- **Create a new vault in iCloud**:
+		    - On macOS:
+		        - Open **Obsidian** and select **Create new vault**.
+		        - In the file picker, navigate to **iCloud Drive → Obsidian**.
+		        - Create a folder for your vault and name it.
+		        - Select **Create** to finish.
+		    - On iOS:
+		        - Open **Obsidian** and tap **Create new vault**.
+		        - Enter a name for your vault.
+			    - Toggle on **Store in iCloud**.
+		        - Tap **Create**.
+  
+    ```shell
+    brew install --cask obsidian
+    ```
+
+- [**zotero**](https://www.zotero.org/): collect, organize, annotate, cite, and share research
+  
+    ```shell
+    brew install --cask zotero
+    ```
+
+### AI app installations
+
+- **[superwhispr](https://superwhisper.com/)**:  'just talk' to your mac, it's way better than typing.
+
+- **[llama.cpp](https://github.com/ggerganov/llama.cpp)**: performs inference on various large language models
+    ```shell
+    brew install llama.cpp
+    ```
+
+- **[ollama](https://github.com/ollama/ollama)**: a lightweight, extensible framework for building and running language models on the local machine.
+    ```shell
+    brew install --cask ollama
+    ```
+
+- **[lmstudio](https://lmstudio.ai/)**: Yet another app to run local LLMs
+    ```shell
+    brew install --cask lmstudio
+    ```
+
+### Media
+
+-  **[VLC](https://www.videolan.org/vlc/)**: free and open source cross-platform multimedia player and framework that plays most multimedia files
+
+### Other Applications
+
+- **Google Drive**: Syncing documents, files, media, etc.
+  
+```shell
+brew install --cask google-drive
+```
+
+- [**Logi Options+**](https://www.logitech.com/en-in/setup/ergosetup/logi-options.html):  Logitech mice and keyboard settings for my [MX keys mini](https://www.logitech.com/en-in/products/keyboards/mx-keys-mini.920-010505.html) and M650L
+- [**Discord**](https://discord.com/) : instant messaging and VoIP social platform
+- **[kindle](https://apps.apple.com/us/app/amazon-kindle/id302584613)** App:  Read kindle books
+
+## References
+
+1. [Eugene Yan - My Minimal MacBook Pro Setup Guide](https://eugeneyan.com/writing/mac-setup/)
+2. [Swyx’s Mac setup](https://www.swyx.io/new-mac-setup)
+3. [Mimansa Jaiswal - What softwares do I actually use on my Mac as a software enthusiast?](https://mimansajaiswal.github.io/posts/mac-softwares/)
+4. [Vaibhav's (VB) Twitter thread]()
+
+
+
+
+
+
