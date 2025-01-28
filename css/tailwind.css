@@ -4,15 +4,15 @@
 
 
 @font-face {
-  font-family: 'ET Book';
-  src: url('/fonts/ETbb-Regular.otf');
+  font-family: 'Merriweather';
+  src: url('/fonts/Merriweather-Regular.ttf');
   font-display: swap;
 }
 
 @layer base {
   html {
     @apply font-serif;
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 }
 
@@ -79,4 +79,8 @@ input:-webkit-autofill:focus {
 .linkicon {
   display: inline-block;
   vertical-align: middle;
+}
+
+.list-tight {
+  line-height: 1.2; /* Adjust the value as needed */
 }
