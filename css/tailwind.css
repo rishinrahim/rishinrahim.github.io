@@ -12,7 +12,7 @@
 @layer base {
   html {
     @apply font-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -81,6 +81,17 @@ input:-webkit-autofill:focus {
   vertical-align: middle;
 }
 
-.list-tight {
-  line-height: 1.2; /* Adjust the value as needed */
+.prose :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0.5em;
+  margin-bottom: -0.5em;
+}
+
+.prose :where(.prose > ul > li > p:last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  margin-bottom: 0;
+}
+
+.prose :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: rgb(99 102 241);
+  text-decoration: underline;
+  font-weight: 500;
 }
