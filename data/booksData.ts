@@ -8,7 +8,7 @@ interface Book {
 
 
 
-const projectsData: Book[] = [
+const bookData: Book[] = [
     {
       "title": "Flowers for Algernon",
       "author": "Daniel Keyes",
@@ -357,4 +357,4 @@ const projectsData: Book[] = [
     
 ]
 
-export default projectsData
+export default bookData
