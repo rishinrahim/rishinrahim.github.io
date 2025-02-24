@@ -20,7 +20,7 @@ export default function Books() {
       </div>
 
       <div className="gap-2 pt-10 sm:grid sm:items-baseline xl:grid-cols-1">
-        {booksData.map((book, index) => (
+      {booksData.map((book, index) => (
           <>
             {/* <div className="sm:flex-col text-sm  leading-6 text-gray-500 dark:text-gray-400">{book.ReadOn}</div> */}
             <div key={book.title} className="text-sm sm:flex-col">
