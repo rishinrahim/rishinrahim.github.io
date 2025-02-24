@@ -1,0 +1,202 @@
+---
+title: 'Making My Blog: A Simple Guide'
+date: '2025-02-24'
+lastmod: '2025-02-24'
+# tags: ['guide']
+draft: false
+summary: 'For an ML engineer, web development presents unique challenges. My experience with web development has been limited to HTML, CSS, and some JavaScript. The last time I worked with JavaScript was during the days of jQuery, nearly a decade ago...'
+authors: ['default']
+---
+
+
+For an ML engineer, web development presents unique challenges. My experience with web development has been limited to HTML, CSS, and some JavaScript. The last time I worked with JavaScript was during the days of jQuery, nearly a decade ago. Since then, my work hasn’t required web development skills, and other priorities kept me from exploring it further.
+
+For almost two years, this blog served solely as an alias for my resume, built with plain HTML and CSS. However, with the new year and the motivation to embrace change, I decided to upgrade both my blog and my web development skills.
+
+## **Objective**
+
+My objective is to create a static site using a static site generator framework to publish my blog using Github pages. I began by researching the most popular static site generator frameworks on GitHub. Here are the top options I discovered:
+
+1. [**Jekyll**](https://github.com/jekyll/jekyll)
+    
+    - Jekyll is the cornerstone of GitHub Pages, a simple static site generator that renders Markdown. It powers [GitHub Pages](https://pages.github.com/), allowing you to host sites directly from your GitHub repositories.
+    - Written in Ruby, Jekyll offers an easy learning curve and a moderately active community.
+    - Using Jekyll requires setting up a Ruby development environment. Extending it with custom shortcodes necessitates some knowledge of Ruby, detailed in their [plugin documentation](https://jekyllrb.com/docs/plugins/tags/).
+        
+2. [**Hugo**](https://github.com/gohugoio/hugo)
+    
+    - Written in Go, Hugo is known for its speed and efficiency. It offers hot reloading, sitemaps, and RSS feeds out of the box.
+    - Getting started is straightforward; on macOS, you can install it by running `brew install hugo`.
+    - Hugo uses Go’s `html/template` and `text/template` for templating. While efficient, these templates are less expressive than some alternatives, contributing to a steeper learning curve.
+    - Hugo is a strong choice if you’re comfortable with Go and want to build a simple blog. However, extending its functionality requires learning its intricacies.
+        
+3. [**Next.js**](https://github.com/vercel/next.js/)
+    
+    - A React-based framework that supports static site generation as well as server-side rendering, offering flexibility for more dynamic sites. 
+    - As one of the most popular frameworks, it has a vibrant community and extensive documentation, making it easier for developers to find solutions and best practices. However, it comes with its downsides—Next.js’s reliance on React means you’ll need a solid understanding of React to use it effectively. Additionally, the framework’s extensive feature set can make the learning curve steep for beginners, and managing larger projects might require additional tooling and setup.
+        
+
+With these options in mind, my next step is to experiment with one of these frameworks to create a modern, functional blog that reflects my improved web development skills. 
+
+
+## **Useful Concepts**
+
+Before I dwell deeper into the dev and deployment part, let me cover some basics(very briefly)
+### [Node package manager](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager)
+
+Like pip, prophet and uv in python. we have npm, yarn and pnpm in javascript.
+
+- [npm](https://www.npmjs.com/) is the standard package manager for Node.js. it started as a way to download and manage dependencies of Node.js packages, but it has since become a tool used also in frontend JavaScript.
+
+- [YARN](https://yarnpkg.com/) stands for Yet Another Resource Negotiator. It is an alternative package manager for JavaScript that was created in 2016 by Facebook, Google, Exponent, and Tilde. It was designed to address some of the issues and limitations of NPM, such as speed, reliability, and security. YARN has a similar command-line interface as NPM, but with some differences and improvements. It also uses the same package.json file as NPM, but it adds another file called yarn.lock that locks the exact versions of your dependencies. It also creates a node_modules folder where it stores the installed packages.
+
+- [PNPM](https://pnpm.io/) stands for Performant Node Package Manager. It is another alternative package manager for JavaScript that was created in 2016 by Zoltan Kochan. It was designed to be faster, lighter, and more secure than both NPM and YARN.PNPM has a similar command-line interface as NPM and YARN, but with some differences and enhancements. It also uses the same package.json file as NPM and YARN, but it adds another file called pnpm-lock.yaml that locks the exact versions of your dependencies. It also creates a node_modules folder where it stores the installed packages.It is faster and lighter than both NPM and YARN when installing or updating packages
+
+### [Tailwind CSS](https://tailwindcss.com/)
+
+From their website, they define tailwind css as :
+
+> A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup`.
+
+So instead of writing customs CSS, we can use predefined classes for layout, spacinf, typography, colors and more. This approach helps rapid dev and prototyping.
+
+### [MDX](https://mdxjs.com/)
+
+MDX lets one use JSX in your markdown content. We can import components, such as interactive charts or alerts, and embed them within your content. This makes writing long-form content with components a blast.
+
+More practically MDX can be explained as a format that combines markdown with JSX and looks as follows:
+
+```mdx
+# Hello, world!
+
+<div className="note">
+  > Some notable things in a block quote!
+</div>
+```
+
+The heading and block quote are markdown, while those _HTML-like tags_ are JSX. Markdown often feels more natural to type than HTML or JSX for common things like emphasis or headings. JSX is an extension to JavaScript that _looks_ like HTML but makes it convenient to use components (reusable things).
+### [ReactJS](https://github.com/facebook/react)
+
+A JavaScript library for building user interfaces, primarily for single-page applications.React's core concepts can be understood as:
+
+- Components: Similar to how we modularize ML pipelines into reusable elements (data preprocessors, model architectures, inference modules), React uses a component-based architecture. Components are self-contained pieces of UI that encapsulate both logic (here "logic" typically refers to UI-specific logic e.g., event handling rather than business logic) and presentation. They can range from atomic elements (like buttons) to complex containers (like entire dashboards). Just as we compose ML pipelines from modular components, React applications are built by composing these UI components hierarchically.
+
+- State and Props: Think of these as React's data management system:
+
+	- `State` is analogous to mutable model parameters or hyperparameters - it represents internal component data that can change over time and trigger re-renders
+	- `props` (short for properties) are used to pass data between components- passed down from parent to child components, enabling unidirectional data flow. 
+	  
+- [virtual DOM](https://legacy.reactjs.org/docs/faq-internals.html): This is React's optimization engine. Instead of directly manipulating the browser's DOM (which is computationally expensive), React maintains a lightweight in-memory representation called the Virtual DOM. It uses a [diffing algorithm(reconciliation)](https://github.com/acdlite/react-fiber-architecture#what-is-reconciliation) to compute the minimal set of actual DOM updates needed.
+
+React uses a declarative paradigm where you specify what you want the UI to look like based on the current state, and React handles the DOM manipulation efficiently. This is somewhat similar to how frameworks like PyTorch allow us to define model architectures declaratively, abstracting away the underlying computational details. 
+
+To learn more about react, I would recommend their official [document](https://react.dev/learn)
+
+## **Next.js: Because Why Not?**
+
+[Next.js](https://github.com/vercel/next.js) is a React framework released in 2016 by [Vercel](https://en.wikipedia.org/wiki/Vercel). It handles server-side rendering and uses file-based routing that automatically creates URLs from your file structure - much simpler than React's manual routing.
+
+Among the 314 static site generators listed on [Jamstack](https://jamstack.org/generators/), Next.js has the most GitHub stars. It ranked highest among React frameworks in the [2022 State of JS survey](https://2022.stateofjs.com/en-US/libraries/rendering-frameworks/) (though Astro has taken over in 2024).
+
+Why did I choose it for my blog? Honestly, I wanted to learn React better, and this seemed like a good challenge. Their [step-by-step tutorial](https://nextjs.org/learn/basics/create-nextjs-app) is great - it teaches concepts while letting you see results quickly.
+
+>Next.js provides a powerful combination of performance, developer experience, flexibility and industry adoption, making it a compelling choice for web development in 2024. Whether you’re building a small website, a large-scale web application, or anything in between, Next.js offers the tools and features you need to deliver a performant and optimized solution—it offers the tools and features you need to succeed. - [5 Reasons You Should Consider Using Next.js in 2024](https://www.telerik.com/blogs/5-reasons-you-should-consider-using-nextjs-2024)
+
+After some searching, I found this excellent [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) template that gave me a jumpstart.
+
+So yeah, I basically went with the popular choice and found a nice template to speed things up. Sometimes the obvious choice is the right one!
+## **Development**
+
+I just needed the basics of these concepts to get this blog up and running (_deep dives are on the TODO list_). Here's everything I did to make it work—a lot of the steps were straight out of the `readme` from the starter template:
+### Clone the repo 
+
+```shell
+git clone https://github.com/timlrx/tailwind-nextjs-starter-blog.git` 
+```
+
+### Directory structure
+```
+	├── CNAME
+	├── LICENSE
+	├── README.md
+	├── app
+	├── components
+	├── css
+	├── data
+		├── authors
+		├── blog
+		├── logo.svg
+		├── references-data.bib
+		└── siteMetadata.js
+		├── faq
+	├── jsconfig.json
+	├── layouts
+	├── next.config.js
+	├── package.json
+	├── postcss.config.js
+	├── prettier.config.js
+	├── public
+	├── scripts
+	├── tailwind.config.js
+	└── tsconfig.json
+```
+### Installation
+
+I used `yarn` as the node package manager. 
+
+```shell
+yarn dev
+```
+ 
+Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result.
+
+Edit the layout in `app` or content in `data`. With live reloading, the pages auto-updates as you edit them.
+
+### Customizations
+
+- `data/siteMetadata.js` - contains most of the site related information which should be modified for a user's need.
+- `data/authors/default.md` - default author information 
+- `data/Books.js` - data used to generate content on the books page.
+- `data/headerNavLinks.js` - navigation links - added `books` and `about`.
+- `data/logo.svg` - replaced the logo.
+- `data/blog` - add blog posts here as `.mdx` files.
+- `public/static` - store assets such as images and favicons.
+- `tailwind.config.js` and `css/tailwind.css` - tailwind configuration and stylesheet which can be modified to change the overall look and feel of the site.
+- `css/prism.css` - controls the styles associated with the code blocks. Feel free to customize it and use your preferred prismjs theme e.g. [prism themes](https://github.com/PrismJS/prism-themes).
+- `layouts` - main templates used in pages: There are currently 3 post layouts available: `PostLayout`, `PostSimple` and `PostBanner`. `PostLayout` is the default 2 column layout with meta and author information. `PostSimple` is a simplified version of `PostLayout`, while `PostBanner` features a banner image. I used `PostSimple` for this blog
+
+
+## Deployment Using **Github pages**
+
+GitHub Pages are public webpages hosted and published through GitHub. To create a github page, please refer this [page] [here](https://docs.github.com/en/pages/quickstart)
+
+- Go to this file: `.github > workflows > nextjs.yml`. This file is a GitHub Actions workflow configuration for automating the build and deployment of a Next.js site to GitHub Pages.
+
+- This workflow automates the process of building and deploying a Next.js site to GitHub Pages. It ensures that the site is built with the latest code from the `master` branch and deployed to GitHub Pages, making it accessible via a GitHub Pages URL.
+
+- Once this page is updated/created. Simply select "GitHub Actions" in: `Settings > Pages > Build and deployment > Source` from your github profile.
+
+- **CNAME**: The [CNAME]() file is used in GitHub Pages to set up a custom domain for your site. In this case, the custom domain is `rishinrahim.com`. To create a CNAME, please refer this [page](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
+
+
+## **Next Steps**
+
+I'm really happy with how `next.js` has turned out so far and excited about the possibilities it brings to my site. I’m looking forward to adding features like page reactions, a comments section, Google Analytics, and more. Let’s see where this journey goes!
+
+
+
+## **References**
+
+1. [Jekyll vs Hugo vs Gatsby vs Next vs Zola vs Eleventy](https://mtm.dev/static)
+2. [React: Quick Start](https://react.dev/learn)
+3. [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
+4. [Reconciliation](https://legacy.reactjs.org/docs/reconciliation.html)
+5. [React Virtual DOM, Reconciliation and Fiber Reconciler](https://namansaxena-official.medium.com/react-virtual-dom-reconciliation-and-fiber-reconciler-cd33ceb0478e)
+6. [React fiber alogirithm](https://www.velotio.com/engineering-blog/react-fiber-algorithm)
+7. [Jamstack Site Generators](https://jamstack.org/generators/)
+8. [NPM vs YARN vs PNPM](https://romanglushach.medium.com/comparing-npm-yarn-and-pnpm-package-managers-which-one-is-right-for-your-distributed-project-to-4d7de2f0db8e)
+9. [Current State of React Server Components](https://www.telerik.com/blogs/current-state-react-server-components-guide-perplexed)
+10.  [5 Reasons You Should Consider Using Next.js in 2024](https://www.telerik.com/blogs/5-reasons-you-should-consider-using-nextjs-2024)
+11. [Quickstart for GitHub Pages](https://docs.github.com/en/pages/quickstart)
+
+
