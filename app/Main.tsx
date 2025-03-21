@@ -28,8 +28,8 @@ export default function Home({ posts }) {
                       <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
                         <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                       </dd>
-                      {/* <br></br> */}
-                      {/* <dd className="flex flex-wrap gap-1">
+                      <br></br>
+                      <dd className="flex flex-wrap gap-1">
                         {tags.map((tag) => (
                           <Tag
                             key={tag}
@@ -37,7 +37,7 @@ export default function Home({ posts }) {
                             className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700"
                           />
                         ))}
-                      </dd> */}
+                      </dd> 
                     </dl>
                     <div className="space-y-1 xl:col-span-3">
                       <div className="space-y-3">
