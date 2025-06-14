@@ -4,7 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 100
 
 export default function Home({ posts }) {
   return (
@@ -14,13 +14,14 @@ export default function Home({ posts }) {
           <p className="leading-2 text-sm text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
-        </div>
+        </div> 
+        <br />
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags } = post
             return (
-              <li key={slug} className="py-6">
+              <li key={slug} className="py-4">
                 <article>
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
@@ -28,16 +29,6 @@ export default function Home({ posts }) {
                       <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
                         <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                       </dd>
-                      <br></br>
-                      <dd className="flex flex-wrap gap-1">
-                        {tags.map((tag) => (
-                          <Tag
-                            key={tag}
-                            text={`${tag}`}
-                            className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700"
-                          />
-                        ))}
-                      </dd> 
                     </dl>
                     <div className="space-y-1 xl:col-span-3">
                       <div className="space-y-3">
