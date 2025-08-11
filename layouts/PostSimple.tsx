@@ -39,14 +39,15 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                 <PageTitle>{title}</PageTitle>
               </div>
               <div className="mb-4 flex justify-center space-x-2">
-                {tags.map((tag) => (
+                <span>2213 words | <a href = "https://wordstotime.com/" className = "linkcolor">17 mins read </a></span>
+                {/* {tags.map((tag) => (
                   <span
                     key={tag}
                     className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-700"
                   >
                     {tag}
                   </span>
-                ))}
+                ))} */}
               </div>
             </div>
           </header>
