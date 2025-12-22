@@ -95,3 +95,13 @@ input:-webkit-autofill:focus {
   text-decoration: underline;
   font-weight: 500;
 }
+
+.divide-custom-200{
+    --tw-divide-opacity: 1;
+    border-color: rgb(127 210 203);
+}
+
+.divide-custom-700{
+    --tw-divide-opacity: 1;
+    border-color: rgb(127 210 203);
+}
