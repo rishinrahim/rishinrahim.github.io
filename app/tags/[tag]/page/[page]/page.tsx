@@ -9,11 +9,17 @@ const POSTS_PER_PAGE = 5
 
 export async function generateStaticParams() {
   const blogs = allBlogs.map((post) => post.tags || []).flat()
-  const allTags = [...new Set([...blogs])]
+  const allTags = [...new Set(blogs)]
 
-  return allTags.map((tag) => ({
-    tag: tag,
-  }))
+  const params: { tag: string; page: string }[] = [] // Add explicit type
+  for (const tag of allTags) {
+    const tagPosts = allBlogs.filter((post) => post.tags?.includes(tag))
+    const totalPages = Math.ceil(tagPosts.length / POSTS_PER_PAGE)
+    for (let page = 1; page <= totalPages; page++) {
+      params.push({ tag, page: page.toString() })
+    }
+  }
+  return params
 }
 export default async function TagPage(props: { params: Promise<{ tag: string; page: string }> }) {
   const params = await props.params
