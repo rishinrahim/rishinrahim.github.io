@@ -1,5 +1,4 @@
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
@@ -19,7 +18,7 @@ export default function Home({ posts }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+            const { slug, date, title, summary } = post
             return (
               <li key={slug} className="py-4">
                 <article>
@@ -33,7 +32,7 @@ export default function Home({ posts }) {
                     <div className="space-y-1 xl:col-span-3">
                       <div className="space-y-3">
                         <div>
-                          <h4 className="font-sans text-lg font-bold tracking-tight">
+                          <h4 className="font-sans text-lg  tracking-tight">
                             <Link
                               href={`/blog/${slug}`}
                               className="text-gray-900 dark:text-gray-100"
@@ -42,11 +41,11 @@ export default function Home({ posts }) {
                             </Link>
                           </h4>
                         </div>
-                        <div className="max-w-none text-sm text-gray-600 dark:text-gray-300">
+                        {/* <div className="max-w-none text-sm text-gray-600 dark:text-gray-300">
                           {summary}
-                        </div>
+                        </div> */}
                       </div>
-                      <div className="text-base font-medium leading-6">
+                      {/* <div className="text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
                           className="text-xs text-primary-600 hover:text-primary-700 dark:hover:text-primary-200"
@@ -54,7 +53,7 @@ export default function Home({ posts }) {
                         >
                           Read more &rarr;
                         </Link>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </article>

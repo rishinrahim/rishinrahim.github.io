@@ -10,7 +10,6 @@ const siteMetadata = {
   siteRepo: 'https://github.com/rishinrahim/rishinrahim-blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
-  mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'rishin07@gmail.com',
   github: 'https://github.com/rishinrahim',
   twitter: 'https://x.com/rishinrahim',

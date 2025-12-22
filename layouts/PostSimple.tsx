@@ -39,7 +39,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                 <PageTitle>{title}</PageTitle>
               </div>
               <div className="mb-4 flex justify-center space-x-2">
-                <span>2213 words | <a href = "https://wordstotime.com/" className = "linkcolor">17 mins read </a></span>
+                {/* <span>2213 words | <a href = "https://wordstotime.com/" className = "linkcolor">17 mins read </a></span> */}
                 {/* {tags.map((tag) => (
                   <span
                     key={tag}
@@ -55,11 +55,11 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
             </div>
-            {siteMetadata.comments && (
+            {/* {siteMetadata.comments && (
               <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
                 <Comments slug={slug} />
               </div>
-            )}
+            )} */}
             <footer>
               <div className="flex flex-col text-sm font-small sm:flex-row sm:justify-between sm:text-base">
                 {prev && prev.path && (
