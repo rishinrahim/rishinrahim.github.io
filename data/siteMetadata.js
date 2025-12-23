@@ -3,8 +3,7 @@ const siteMetadata = {
   title: 'Rishin\'s Blog',
   author: 'Rishin Rahim',
   headerTitle: 'Rishin Rahim',
-  description: 'Hi, this is Rishin. I’m documenting my thoughts and insights on machine learning and life in general. While most of it remains relevant, some entries reflect what I knew at the time. The goal is to share and learn, not to mislead.',
-  language: 'en-us',
+  description: 'Hi, I\'m Rishin. I\'m a machine learning engineer who\'s curious about way too many things. This is where I share thoughts on tech, life, and everything in between.',
   theme: 'light', // system, dark or light
   siteUrl: 'https://rishinrahim.com',
   siteRepo: 'https://github.com/rishinrahim/rishinrahim-blog',
