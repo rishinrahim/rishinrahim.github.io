@@ -105,3 +105,10 @@ input:-webkit-autofill:focus {
     --tw-divide-opacity: 1;
     border-color: rgb(127 210 203);
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  @apply max-w-sm; /* Adjust from max-w-md, max-w-lg, etc. */
+  align: center;
+}
